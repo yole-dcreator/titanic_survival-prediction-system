@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Titanic Survival Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; }
+        .container { max-width: 400px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h2 { text-align: center; }
+        label { display: block; margin-top: 15px; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; border-radius: 4px; border: 1px solid #ccc; }
+        button { margin-top: 20px; width: 100%; padding: 10px; background: #007bff; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
+        .result { margin-top: 20px; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Titanic Survival Prediction</h2>
+        <form method="post">
+            <label for="Pclass">Passenger Class (1, 2, 3):</label>
+            <select name="Pclass" id="Pclass" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <label for="Sex">Sex (0=Female, 1=Male):</label>
+            <select name="Sex" id="Sex" required>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+            <label for="Age">Age:</label>
+            <input type="number" step="any" name="Age" id="Age" required>
+            <label for="SibSp">Siblings/Spouses Aboard:</label>
+            <input type="number" name="SibSp" id="SibSp" required>
+            <label for="Fare">Fare:</label>
+            <input type="number" step="any" name="Fare" id="Fare" required>
+            <button type="submit">Predict Survival</button>
+        </form>
+        {% if result %}
+            <div class="result">Prediction: {{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
